@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Index</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+            integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+            crossorigin="anonymous"></script>
+
 </head>
 <body>
-<h1>Recipe Home</h1>
 
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Recipe Home</h1>
+                </div>
+                <div class="panel-body">
+                    <tr th:each="recipe : ${recipes}">
+                        <td th:text="${{recipe.description}}">NIX</td>
+                        <td th:text="${{recipe.difficulty}}">NIX</td>
+                    </tr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

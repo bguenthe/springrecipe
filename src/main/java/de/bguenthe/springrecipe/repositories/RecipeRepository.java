@@ -1,4 +1,4 @@
-package repositories;
+package de.bguenthe.springrecipe.repositories;
 
 import de.bguenthe.springrecipe.domain.Recipe;
 import org.springframework.data.repository.CrudRepository;
