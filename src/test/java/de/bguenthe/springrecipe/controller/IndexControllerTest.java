@@ -1,7 +1,7 @@
 package de.bguenthe.springrecipe.controller;
 
 import de.bguenthe.springrecipe.domain.Recipe;
-import de.bguenthe.springrecipe.services.RecipeService;
+import de.bguenthe.springrecipe.services.RecipeServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
@@ -26,7 +26,7 @@ public class IndexControllerTest {
     IndexController indexController;
 
     @Mock
-    RecipeService recipeService;
+    RecipeServiceImpl recipeService;
 
     @Mock
     Model model;
@@ -54,12 +54,12 @@ public class IndexControllerTest {
         r.setId(1L);
         recipeSet.add(r);
 
-        when(recipeService.getAllRecipies()).thenReturn(recipeSet);
+        when(recipeService.getRecipes()).thenReturn(recipeSet);
 
         ArgumentCaptor<Set<Recipe>> argumentCaptor = ArgumentCaptor.forClass(Set.class);
 
         assertEquals("index", indexController.getIndexPage(model));
-        verify(recipeService, times(1)).getAllRecipies();
+        verify(recipeService, times(1)).getRecipes();
         verify(model, times(1)).addAttribute(eq("recipes"), argumentCaptor.capture());
 
         Set<Recipe> recipeSet1 = argumentCaptor.getValue();

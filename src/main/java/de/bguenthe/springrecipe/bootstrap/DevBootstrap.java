@@ -43,9 +43,11 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         recipe.setCookTime(0);
         recipe.setSource("Internet");
         recipe.setUrl("http://www.simplyrecipes.com/recipes/perfect_guacamole/");
-        recipe.setDirections("");
+        recipe.setServings(99);
+        recipe.setDirections("1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. (See How to Cut and Peel an Avocado.) Place in a bowl.");
 
         recipe.getCategories().add(categoryRepository.findByCategoryName("Mexikanisch").get());
+        recipe.getCategories().add(categoryRepository.findByCategoryName("Asiatisch").get());
 
         Notes notes = new Notes();
         notes.setRecipeNotes("2 ripe avocados");
