@@ -14,5 +14,5 @@ public class UnitOfMeasure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    private String unitOfMeasure;
+    private String description;
 }

@@ -39,7 +39,7 @@ dependencies {
 	runtime('com.h2database:h2')
 	runtime('org.webjars:bootstrap:3.3.7-1')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+	compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 compileKotlin {
 	kotlinOptions {
