@@ -1,7 +1,7 @@
 buildscript {
 	ext.kotlin_version = '1.2.10'
 	ext {
-		springBootVersion = '2.0.0.M7'
+		springBootVersion = '2.0.0.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -37,6 +37,7 @@ dependencies {
 	compile('org.projectlombok:lombok')
 	runtime('org.springframework.boot:spring-boot-devtools')
 	runtime('com.h2database:h2')
+	runtime('org.postgresql:postgresql:42.2.1')
 	runtime('org.webjars:bootstrap:3.3.7-1')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

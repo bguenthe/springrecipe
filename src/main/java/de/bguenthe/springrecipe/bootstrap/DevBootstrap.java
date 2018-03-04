@@ -6,6 +6,7 @@ import de.bguenthe.springrecipe.repositories.RecipeRepository;
 import de.bguenthe.springrecipe.repositories.UnitOfMeasureRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +17,7 @@ import java.util.Set;
 
 @Slf4j
 @Component
+@Profile("uat")
 public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private RecipeRepository recipeRepository;
@@ -34,6 +36,29 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
     }
 
     private void initData() {
+        categoryRepository.deleteAll();
+        Category c = new Category();
+        c.setCategoryName("Mexikanisch");
+        categoryRepository.save(c);
+        Category c1 = new Category();
+        c1.setCategoryName("Asiatisch");
+        categoryRepository.save(c1);
+        Category c2 = new Category();
+        c2.setCategoryName("Griechisch");
+        categoryRepository.save(c2);
+        Category c3 = new Category();
+        c3.setCategoryName("Deutsch");
+        categoryRepository.save(c3);
+
+        unitOfMeasureRepository.deleteAll();
+        UnitOfMeasure uom = new UnitOfMeasure();
+        uom.setDescription("Teelöffel");
+        unitOfMeasureRepository.save(uom);
+
+        UnitOfMeasure uom1 = new UnitOfMeasure();
+        uom1.setDescription("Tasse");
+        unitOfMeasureRepository.save(uom1);
+
         Recipe recipe = new Recipe();
         recipe.setDescription("Guacamole");
         recipe.setDifficulty(Difficulty.EASY);
