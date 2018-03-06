@@ -59,6 +59,10 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         uom1.setDescription("Tasse");
         unitOfMeasureRepository.save(uom1);
 
+        UnitOfMeasure uom2 = new UnitOfMeasure();
+        uom2.setDescription("Milliliter");
+        unitOfMeasureRepository.save(uom2);
+
         Recipe recipe = new Recipe();
         recipe.setDescription("Guacamole");
         recipe.setDifficulty(Difficulty.EASY);

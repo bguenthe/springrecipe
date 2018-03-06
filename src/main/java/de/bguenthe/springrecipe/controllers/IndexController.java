@@ -1,4 +1,4 @@
-package de.bguenthe.springrecipe.controller;
+package de.bguenthe.springrecipe.controllers;
 
 import de.bguenthe.springrecipe.services.RecipeServiceImpl;
 import lombok.extern.slf4j.Slf4j;

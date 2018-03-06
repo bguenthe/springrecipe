@@ -1,4 +1,4 @@
-package de.bguenthe.springrecipe.controller;
+package de.bguenthe.springrecipe.controllers;
 
 import de.bguenthe.springrecipe.domain.Recipe;
 import de.bguenthe.springrecipe.services.RecipeServiceImpl;

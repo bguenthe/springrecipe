@@ -27,5 +27,4 @@ public class Ingredient {
     public void setId(Long id) {
         Id = id;
     }
-
 }

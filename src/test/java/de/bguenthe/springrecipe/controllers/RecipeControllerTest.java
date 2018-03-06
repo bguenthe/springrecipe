@@ -1,18 +1,15 @@
-package de.bguenthe.springrecipe.controller;
+package de.bguenthe.springrecipe.controllers;
 
 import de.bguenthe.springrecipe.commands.RecipeCommand;
 import de.bguenthe.springrecipe.domain.Recipe;
 import de.bguenthe.springrecipe.services.RecipeService;
-import de.bguenthe.springrecipe.services.RecipeServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.ui.Model;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;

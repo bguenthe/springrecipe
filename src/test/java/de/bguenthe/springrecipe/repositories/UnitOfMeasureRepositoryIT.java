@@ -21,6 +21,9 @@ public class UnitOfMeasureRepositoryIT {
 
     @Before
     public void setUp() throws Exception {
+        UnitOfMeasure uom2 = new UnitOfMeasure();
+        uom2.setDescription("Milliliter");
+        unitOfMeasureRepository.save(uom2);
     }
 
     @Test
