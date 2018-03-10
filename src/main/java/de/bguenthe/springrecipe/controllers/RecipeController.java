@@ -22,6 +22,10 @@ public class RecipeController {
 
     @GetMapping("/recipe/{id}/show")
     public String showById(@PathVariable String id, Model model){
+        if(!id.chars().allMatch( Character::isDigit)) {
+            throw new NumberFormatException("ID: "+ id + " has to be numeric");
+        }
+
         model.addAttribute("recipe", recipeService.findById(new Long(id)));
 
         return "recipe/show";
@@ -66,4 +70,18 @@ public class RecipeController {
 
         return modelAndView;
     }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(NumberFormatException.class)
+    public ModelAndView handleNumberFormat(Exception e) {
+        log.error("Number Fprmat Exception");
+        log.error(e.getMessage());
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("exception", e);
+        modelAndView.setViewName("400error");
+
+        return modelAndView;
+    }
+
 }
