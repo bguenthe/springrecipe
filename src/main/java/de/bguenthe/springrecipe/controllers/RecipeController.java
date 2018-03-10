@@ -1,14 +1,16 @@
 package de.bguenthe.springrecipe.controllers;
 
 import de.bguenthe.springrecipe.commands.RecipeCommand;
+import de.bguenthe.springrecipe.exceptions.NotFoundException;
 import de.bguenthe.springrecipe.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-/**
- * Created by jt on 6/19/17.
- */
+@Slf4j
 @Controller
 public class RecipeController {
 
@@ -50,5 +52,18 @@ public class RecipeController {
         recipeService.deleteById(new Long(id));
 
         return "redirect:/";
+    }
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundException.class)
+    public ModelAndView handleNotFound(Exception e) {
+        log.error("Handling not found exception");
+        log.error(e.getMessage());
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("exception", e);
+        modelAndView.setViewName("404error");
+
+        return modelAndView;
     }
 }

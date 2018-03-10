@@ -1,10 +1,10 @@
 package de.bguenthe.springrecipe.services;
 
-
 import de.bguenthe.springrecipe.commands.RecipeCommand;
 import de.bguenthe.springrecipe.converters.RecipeCommandToRecipe;
 import de.bguenthe.springrecipe.converters.RecipeToRecipeCommand;
 import de.bguenthe.springrecipe.domain.Recipe;
+import de.bguenthe.springrecipe.exceptions.NotFoundException;
 import de.bguenthe.springrecipe.repositories.RecipeRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -107,5 +107,14 @@ public class RecipeServiceImplTest {
 
         //then
         verify(recipeRepository, times(1)).deleteById(anyLong());
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void getRecipeByIdTestNotFound() throws Exception {
+        Optional<Recipe> optionalRecipe = Optional.empty();
+
+        when(recipeRepository.findById(anyLong())).thenReturn(optionalRecipe);
+
+        Recipe returenedRecipe = recipeService.findById(1L);
     }
 }

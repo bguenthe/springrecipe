@@ -4,13 +4,12 @@ import de.bguenthe.springrecipe.commands.RecipeCommand;
 import de.bguenthe.springrecipe.converters.RecipeCommandToRecipe;
 import de.bguenthe.springrecipe.converters.RecipeToRecipeCommand;
 import de.bguenthe.springrecipe.domain.Recipe;
+import de.bguenthe.springrecipe.exceptions.NotFoundException;
 import de.bguenthe.springrecipe.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -42,12 +41,12 @@ public class RecipeServiceImpl implements RecipeService {
     }
 
     @Override
-    public Recipe findById(Long l) {
+    public Recipe findById(Long id) {
 
-        Optional<Recipe> recipeOptional = recipeRepository.findById(l);
+        Optional<Recipe> recipeOptional = recipeRepository.findById(id);
 
         if (!recipeOptional.isPresent()) {
-            throw new RuntimeException("Recipe Not Found!");
+            throw new NotFoundException("Recipe with id: " + id + " not Found!");
         }
 
         return recipeOptional.get();
