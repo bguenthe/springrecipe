@@ -67,7 +67,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         recipe.setDescription("Guacamole");
         recipe.setDifficulty(Difficulty.EASY);
         recipe.setPreparationTime(10);
-        recipe.setCookTime(0);
+        recipe.setCookTime(1);
         recipe.setSource("Internet");
         recipe.setUrl("http://www.simplyrecipes.com/recipes/perfect_guacamole/");
         recipe.setServings(99);
@@ -98,7 +98,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         recipe1.setDescription("Guacamole1");
         recipe1.setDifficulty(Difficulty.EASY);
         recipe1.setPreparationTime(10);
-        recipe1.setCookTime(0);
+        recipe1.setCookTime(1);
         recipe1.setSource("Internet1");
         recipe1.setUrl("bg");
         recipe1.setServings(99);
@@ -115,7 +115,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         Ingredient i1 = new Ingredient();
         i1.setAmount(new BigDecimal(2));
         i1.setDescription("ripe avocados");
-        i1.setRecipe(recipe);
+        i1.setRecipe(recipe1);
         i1.setUnitOfMeasure(tasseUomOptional.get());
         ingredients1.add(i1);
         recipe1.setIngredients(ingredients1);
